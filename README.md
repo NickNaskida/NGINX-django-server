@@ -7,7 +7,7 @@ Django is an open-source Python framework that can be used for deploying Python 
 
 First, you will need to install Nginx and other Python dependencies on your server. You can install all the packages with the following command:
 ```
-sudo apt-get install python3-pip python3-dev libpq-dev curl nginx -y
+sudo apt-get install vim python3-pip python3-dev libpq-dev curl nginx -y
 ```
 Once all the packages are installed, start the Nginx service and enable it to start at system reboot:
 
@@ -71,4 +71,10 @@ source venv/bin/activate
 Next, install the Django, Gunicorn, and other packages with the following command:
 ```
 pip install django gunicorn psycopg2-binary
+```
+## Configure Django
+
+Edit the settings.py and define your database settings:
+```
+sudo vim ~/django_project/django_project/settings.py
 ```

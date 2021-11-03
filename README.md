@@ -249,3 +249,37 @@ To do so, create an Nginx configuration file:
 ```
 sudo vim /etc/nginx/conf.d/django.conf
 ```
+
+Add the following lines:
+```
+server {  
+	listen 80;     
+	server_name django.example.com;    
+	location = /favicon.ico { access_log off; log_not_found off; }    
+	location /static/ {         
+		root /root/django_project;     
+	}    
+	location / {         
+		include proxy_params;         
+		proxy_pass http://unix:/run/gunicorn.sock;     
+	}
+}
+```
+Save and close the file then verify the Nginx for any configuration error:
+```
+nginx -t
+```
+Output:
+```
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+Finally, restart the Nginx service to apply the changes:
+```
+systemctl restart nginx
+```
+Now, you can access the Django application using the URL http://django.example.com.
+
+
+## SSL certificate with certbot
+

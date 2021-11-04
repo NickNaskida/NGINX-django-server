@@ -252,18 +252,38 @@ sudo vim /etc/nginx/conf.d/django.conf
 
 Add the following lines:
 ```
-server {  
-	listen 80;     
-	server_name django.example.com;    
-	location = /favicon.ico { access_log off; log_not_found off; }    
-	location /static/ {         
-		root /root/django_project;     
-	}    
-	location / {         
-		include proxy_params;         
-		proxy_pass http://unix:/run/gunicorn.sock;     
-	}
+server {
+        server_name django.example.com;
+
+        client_body_buffer_size 200K;
+        client_header_buffer_size 2k;
+        client_max_body_size 100M;
+        large_client_header_buffers 3 1k;
+
+        client_body_timeout 5s;
+        client_header_timeout 5s;
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+
+        location /static {
+                alias ~/django_project;
+        }
+
+        location /media {
+                alias ~/django_project;
+        }
+
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/run/dz.gunicorn.sock;
+                proxy_set_header CLIENT-IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                limit_conn two 10;
+        }
+
 }
+
 ```
 Save and close the file then verify the Nginx for any configuration error:
 ```
@@ -282,4 +302,4 @@ Now, you can access the Django application using the URL http://django.example.c
 
 
 ## SSL certificate with certbot
-
+Visit https://certbot.eff.org/, choose your machine configuration and complete taht commands. 

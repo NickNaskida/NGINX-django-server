@@ -1,4 +1,4 @@
-# Django production server with NGINX and Gunicorn
+# Django production server with Nginx and Gunicorn
 
 ### Introduction
 Django is an open-source Python framework that can be used for deploying Python applications. It comes with a development server to test your Python code in the local system. If you want to deploy a Python application on the production environment then you will need a powerful and more secure web server. In this case, you can use Gunicorn as a WSGI HTTP server and Nginx as a proxy server to serve your application securely with robust performance.

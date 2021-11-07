@@ -275,7 +275,7 @@ server {
 
         location / {
                 include proxy_params;
-                proxy_pass http://unix:/run/dz.gunicorn.sock;
+                proxy_pass http://unix:/run/gunicorn.sock;
                 proxy_set_header CLIENT-IP $remote_addr;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -309,7 +309,7 @@ Ubuntu 20.04 + Nginx https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
 
 To confirm that your site is set up properly, visit https://django.example.com/ in your browser and look for the lock icon in the URL bar.
 
-## Automatic renewal crontab job
+## Automatic SSL certificate renewal crontab job
 
 Open crontab with following command:
 ```

@@ -305,7 +305,7 @@ Now, you can access the Django application using the URL http://django.example.c
 Visit https://certbot.eff.org/, choose your machine configuration and comlete written commands.
 
 
-Ubuntu 20.04 + Nginx https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx
+Ubuntu 20.04 + Nginx https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal
 
 To confirm that your site is set up properly, visit https://django.example.com/ in your browser and look for the lock icon in the URL bar.
 

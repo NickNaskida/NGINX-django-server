@@ -63,6 +63,9 @@ GRANT ALL PRIVILEGES ON DATABASE djangodb TO djangouser;
 Next, exit from the PostgreSQL shell using the following command:
 ```
 \q
+
+# to exit user
+exit
 ```
 
 ## Create a Python Virtual Environment

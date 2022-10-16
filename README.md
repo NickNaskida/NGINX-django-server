@@ -216,8 +216,7 @@ After=network.target
 User=root
 Group=www-data
 WorkingDirectory=/root/django_project
-ExecStart=/root/django_project/venv/bin/gunicorn --access-logfile - --workers 5 --bind 
-unix:/run/gunicorn.sock          django_project.wsgi:application
+ExecStart=/root/django_project/venv/bin/gunicorn --access-logfile - --workers 5 --bind unix:/run/gunicorn.sock django_project.wsgi:application
 
 [Install]
 WantedBy=multi-user.target

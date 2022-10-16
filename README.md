@@ -79,6 +79,11 @@ Next, install the virtualenv package using the following command:
 ```
 pip install python3.9-dev python3.9-venv
 ```
+_In case of error try this:_
+```
+sudo apt-get install python3.9-dev python3.9-venv
+```
+
 Next, create a directory for the Django project using the command below:
 ```
 mkdir ~/django_project

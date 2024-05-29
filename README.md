@@ -324,6 +324,6 @@ sudo crontab -e
 ```
 Add the following line to the end of the file:
 ```
-30 4 1 * * sudo cerbot renew --quiet
+30 4 1 * * sudo certbot renew --quiet
 ```
 
